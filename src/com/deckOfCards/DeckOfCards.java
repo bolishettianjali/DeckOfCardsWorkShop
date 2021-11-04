@@ -13,6 +13,21 @@ public class DeckOfCards {
         createCards();
         addPlayers();
         shuffleCards();
+        distributeCards();
+    }
+
+    /*
+    This method is used to distribute cards.
+    Each player will receive 9 cards.
+    Every time before distributing cards will get shuffle.
+     */
+    public static void distributeCards() {
+        for (int i = 1; i <= 9; i++) {
+            for (Players player : playersList) {
+                shuffleCards();
+                player.cards.add(deckOfCards.poll());
+            }
+        }
     }
 
     /*
@@ -26,7 +41,7 @@ public class DeckOfCards {
     /*
     This method is to create players.
     Taking player name through console.
-    Creating Players class object and assigning player name.
+    Creating Players class object  and assigning player name.
     assigned Players object added to playersList.
     */
     public static void addPlayers() {
