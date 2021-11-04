@@ -15,6 +15,24 @@ public class DeckOfCards {
         shuffleCards();
         distributeCards();
         displayPlayerCardsCount();
+        displayCardsLowerToHigherRank();
+    }
+
+    /*
+    This method is used to print the player cards according
+     to rank from lower to higher.
+     */
+    public static void displayCardsLowerToHigherRank() {
+        for (Players player : playersList) { //player-1
+            System.out.println("\nPlayer Name: " + player.playerName + "\n");
+            for (String rank : rank) {
+                for (Card card : player.cards) {
+                    if (card.rank.equals(rank)) {
+                        System.out.println(card);
+                    }
+                }
+            }
+        }
     }
 
     /*
