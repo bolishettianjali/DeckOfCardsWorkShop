@@ -11,7 +11,16 @@ public class DeckOfCards {
 
     public static void main(String[] args) {
         createCards();
-        addPayers();
+        addPlayers();
+        shuffleCards();
+    }
+
+    /*
+    This method is used to Shuffle the cards in list
+    Using Collections class shuffle() method.
+     */
+    public static void shuffleCards() {
+        Collections.shuffle(deckOfCards);
     }
 
     /*
@@ -20,7 +29,7 @@ public class DeckOfCards {
     Creating Players class object and assigning player name.
     assigned Players object added to playersList.
     */
-    public static void addPayers() {
+    public static void addPlayers() {
         for (int i = 1; i <= 3; i++) {
             System.out.println("\nEnter Player-" + i + " Name: ");
             String playerName = scanner.next();
@@ -35,8 +44,8 @@ public class DeckOfCards {
     Assigned object is added to deck of Cards list.
     */
     public static void createCards() {
-        for (String suit : DeckOfCards.suit) {
-            for (String rank : DeckOfCards.rank) {
+        for (String suit : suit) {
+            for (String rank : rank) {
                 Card card = new Card(suit, rank);
                 deckOfCards.add(card);
             }
