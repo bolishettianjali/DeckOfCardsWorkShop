@@ -14,6 +14,29 @@ public class DeckOfCards {
         addPlayers();
         shuffleCards();
         distributeCards();
+        displayPlayerCardsCount();
+    }
+
+    /*
+    This method is used to display the count of similar
+     type of card suit got to player.
+     */
+    public static void displayPlayerCardsCount() {
+        int count = 0;
+        for (Players player : playersList) {
+            System.out.println("\nPlayer Name: " + player.playerName);
+            {
+                for (String suit : suit) {//Diamonds
+                    for (Card card : player.cards) {
+                        if (suit.equals(card.suit)) {
+                            count++;
+                        }
+                    }
+                    System.out.println("'" + suit + "': " + count + ", ");
+                    count = 0;
+                }
+            }
+        }
     }
 
     /*
